@@ -1,17 +1,26 @@
-import Image from "next/image";
+'use client'
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [tempo, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+  }, []);
+
   const hora = new Date().getHours();
   const minuto = new Date().getMinutes();
   const horaFormatada = `${hora}:${minuto}`;
 
   const saudacao = () => {
     if (hora >= 5 && hora < 12) {
-      return "Bom dia";
+      return "Bom dia!";
     } else if (hora >= 12 && hora < 18) {
-      return "Boa tarde";
+      return "Boa tarde!";
     } else {
-      return "Boa noite";
+      return "Boa noite!";
     }
   };
 
