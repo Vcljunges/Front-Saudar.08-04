@@ -22,10 +22,10 @@ export default function Notas() {
             <thead className="bg-slate-50/50 dark:bg-slate-800/40 text-xs uppercase text-slate-500 dark:text-slate-400 font-bold tracking-wider">
               <tr>
                 <th className="px-6 py-5">Aluno</th>
-                <th className="px-6 py-5">Status</th>
                 <th className="px-6 py-5 text-center">Nota 1</th>
                 <th className="px-6 py-5 text-center">Nota 2</th>
                 <th className="px-6 py-5 text-center">Média Final</th>
+                <th className="px-6 py-5">Status</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-slate-800/80">
@@ -36,8 +36,7 @@ export default function Notas() {
                 return (
                   <tr 
                     key={student.id} 
-                    className={`group transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-800/30 ${!student.active ? 'opacity-60 grayscale' : ''}`}
-                  >
+                    className={`group transition-all duration-300 ${!student.active ? 'hover:bg-gray-50 dark:hover:bg-gray-500/10 opacity-60 grayscale' : aprovado ? 'hover:bg-green-50 dark:hover:bg-green-500/10' : 'hover:bg-red-50 dark:hover:bg-red-500/10'}`}>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-4">
                         <img 
@@ -51,13 +50,6 @@ export default function Notas() {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4">
-                      <span 
-                        className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${!student.active ? 'bg-slate-50 text-slate-700 border-slate-200 dark:bg-slate-500/10 dark:text-slate-400 dark:border-slate-500/20' : aprovado ? 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20' : 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20'}`}
-                      >
-                        {student.active ? aprovado ? "Aprovado" : "Reprovado" : "Inativo"}
-                      </span>
-                    </td>
                     <td className="px-6 py-4 text-center">
                       <span className="font-semibold text-slate-700 dark:text-slate-300 text-base">{student.grade1.toFixed(1)}</span>
                     </td>
@@ -67,6 +59,13 @@ export default function Notas() {
                     <td className="px-6 py-4 text-center">
                       <span className={`text-lg font-black ${!student.active ? 'text-slate-400 dark:text-slate-500' : aprovado ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
                         {student.active ? media.toFixed(1) : '-'}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span 
+                        className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${!student.active ? 'bg-slate-50 text-slate-700 border-slate-200 dark:bg-slate-500/10 dark:text-slate-400 dark:border-slate-500/20' : aprovado ? 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20' : 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20'}`}
+                      >
+                        {student.active ? aprovado ? "Aprovado" : "Reprovado" : "Inativo"}
                       </span>
                     </td>
                   </tr>
