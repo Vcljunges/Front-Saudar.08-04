@@ -22,10 +22,10 @@ export default function Notas() {
             <thead className="bg-slate-50/50 dark:bg-slate-800/40 text-xs uppercase text-slate-500 dark:text-slate-400 font-bold tracking-wider">
               <tr>
                 <th className="px-6 py-5">Aluno</th>
+                <th className="px-6 py-5 ">Status</th>
                 <th className="px-6 py-5 text-center">Nota 1</th>
                 <th className="px-6 py-5 text-center">Nota 2</th>
                 <th className="px-6 py-5 text-center">Média Final</th>
-                <th className="px-6 py-5">Status</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-slate-800/80">
@@ -51,17 +51,6 @@ export default function Notas() {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300 text-base">{student.grade1.toFixed(1)}</span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300 text-base">{student.grade2.toFixed(1)}</span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <span className={`text-lg font-black ${aprovado ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
-                        {media.toFixed(1)}
-                      </span>
-                    </td>
                     <td className="px-6 py-4">
                       <span 
                         className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${
@@ -71,6 +60,17 @@ export default function Notas() {
                         }`}
                       >
                         {aprovado ? "Aprovado" : "Reprovado"}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="font-semibold text-slate-700 dark:text-slate-300 text-base">{student.grade1.toFixed(1)}</span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="font-semibold text-slate-700 dark:text-slate-300 text-base">{student.grade2.toFixed(1)}</span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className={`text-lg font-black ${!student.active ? 'text-slate-400 dark:text-slate-500' : aprovado ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
+                        {student.active ? media.toFixed(1) : '-'}
                       </span>
                     </td>
                   </tr>

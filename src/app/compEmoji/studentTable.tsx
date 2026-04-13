@@ -17,12 +17,12 @@ export function StudentTable({ students }: StudentTableProps) {
                 <th>Status</th>
             </tr>
             <tr>
+                <td>{students.map((student) => student.active ? "Aprovado" : "Reprovado")}</td>
                 <td>{students.map((student) => student.name)}</td>
                 <td>{students.map((student) => student.email)}</td>
                 <td>{students.map((student) => student.grade1)}</td>
                 <td>{students.map((student) => student.grade2)}</td>
                 <td>{students.map((student) => (student.grade1 + student.grade2) / 2)}</td>
-                <td>{students.map((student) => student.active ? "Aprovado" : "Reprovado")}</td>
             </tr>
         </table> 
     );
