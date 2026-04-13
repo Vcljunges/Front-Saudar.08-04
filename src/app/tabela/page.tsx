@@ -22,7 +22,7 @@ export default function Notas() {
             <thead className="bg-slate-50/50 dark:bg-slate-800/40 text-xs uppercase text-slate-500 dark:text-slate-400 font-bold tracking-wider">
               <tr>
                 <th className="px-6 py-5">Aluno</th>
-                <th className="px-6 py-5 ">Status</th>
+                <th className="px-6 py-5">Status</th>
                 <th className="px-6 py-5 text-center">Nota 1</th>
                 <th className="px-6 py-5 text-center">Nota 2</th>
                 <th className="px-6 py-5 text-center">Média Final</th>
