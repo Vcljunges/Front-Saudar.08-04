@@ -46,20 +46,16 @@ export default function Notas() {
                           className="w-11 h-11 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm group-hover:scale-105 transition-transform duration-300"
                         />
                         <div>
-                          <div className="font-bold text-slate-900 dark:text-gray-100 text-base">{student.name} {student.active ? '' : '(Inativo)'}</div>
+                          <div className="font-bold text-slate-900 dark:text-gray-100 text-base">{student.name}</div>
                           <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{student.email}</div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <span 
-                        className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${
-                          aprovado 
-                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20' 
-                            : 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20'
-                        }`}
+                        className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${!student.active ? 'bg-slate-50 text-slate-700 border-slate-200 dark:bg-slate-500/10 dark:text-slate-400 dark:border-slate-500/20' : aprovado ? 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20' : 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-500/10 dark:text-rose-400 dark:border-rose-500/20'}`}
                       >
-                        {aprovado ? "Aprovado" : "Reprovado"}
+                        {student.active ? aprovado ? "Aprovado" : "Reprovado" : "Inativo"}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-center">
